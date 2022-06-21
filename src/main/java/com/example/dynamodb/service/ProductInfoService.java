@@ -26,11 +26,15 @@ public class ProductInfoService {
             .notificationId("some-id-2")
             .userId("1040")
             .phoneNumber("3116715649")
-            .isSend("false")
+            .isSend(false)
             .userName("John Doe")
             .lastSend(1655815520L)
             .build();
 
         return notificationsRepository.save(p);
+    }
+
+    public Notifications findById(String id) {
+        return notificationsRepository.findByPhoneNumber(id);
     }
 }

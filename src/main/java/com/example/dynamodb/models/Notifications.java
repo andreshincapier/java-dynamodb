@@ -29,7 +29,7 @@ public class Notifications {
     private String phoneNumber;
 
     @DynamoDBAttribute
-    private String isSend;
+    private Boolean isSend;
 
     @DynamoDBAttribute
     private String userName;

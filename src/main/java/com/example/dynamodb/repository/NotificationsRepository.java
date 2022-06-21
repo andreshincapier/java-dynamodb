@@ -11,4 +11,5 @@ import org.springframework.stereotype.Repository;
 public interface NotificationsRepository extends CrudRepository<Notifications, String> {
 
     List<Notifications> findAll();
+    Notifications findByPhoneNumber(String phoneNumber);
 }
