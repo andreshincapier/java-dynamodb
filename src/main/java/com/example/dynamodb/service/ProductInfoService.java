@@ -1,8 +1,8 @@
 package com.example.dynamodb.service;
 
-import com.example.dynamodb.models.ProductInfo;
-import com.example.dynamodb.models.ProductInfoDTO;
-import com.example.dynamodb.repository.ProductInfoRepository;
+import com.example.dynamodb.models.Notifications;
+import com.example.dynamodb.models.NotificationsDTO;
+import com.example.dynamodb.repository.NotificationsRepository;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -13,19 +13,24 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class ProductInfoService {
 
-    private final ProductInfoRepository productInfoRepository;
+    private final NotificationsRepository notificationsRepository;
 
-    public List<ProductInfo> findAll() {
-        return productInfoRepository.findAll();
+    public List<Notifications> findAll() {
+        return notificationsRepository.findAll();
     }
 
-    public ProductInfo save(final ProductInfoDTO dto) {
+    public Notifications save(final NotificationsDTO dto) {
 
-        final ProductInfo p = ProductInfo.builder().id(dto.getId())
-            .msrp(dto.getMsrp())
-            .cost(dto.getCost())
+        final Notifications p = Notifications
+            .builder()
+            .notificationId("some-id-2")
+            .userId("1040")
+            .phoneNumber("3116715649")
+            .isSend("false")
+            .userName("John Doe")
+            .lastSend(1655815520L)
             .build();
 
-        return productInfoRepository.save(p);
+        return notificationsRepository.save(p);
     }
 }

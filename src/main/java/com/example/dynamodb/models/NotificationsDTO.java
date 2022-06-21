@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 @Builder(toBuilder = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class ProductInfoDTO {
+public class NotificationsDTO {
 
     private String id;
     private String msrp;

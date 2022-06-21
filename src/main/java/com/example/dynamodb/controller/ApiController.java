@@ -1,7 +1,7 @@
 package com.example.dynamodb.controller;
 
-import com.example.dynamodb.models.ProductInfo;
-import com.example.dynamodb.models.ProductInfoDTO;
+import com.example.dynamodb.models.Notifications;
+import com.example.dynamodb.models.NotificationsDTO;
 import com.example.dynamodb.service.ProductInfoService;
 import java.util.List;
 import lombok.AllArgsConstructor;
@@ -19,12 +19,12 @@ public class ApiController {
     private final ProductInfoService productInfoService;
 
     @GetMapping(path = "/findAll")
-    public List<ProductInfo> findAllProducts() {
+    public List<Notifications> findAllProducts() {
         return productInfoService.findAll();
     }
 
     @PostMapping(path = "/save")
-    public ProductInfo saveProduct(@RequestBody final ProductInfoDTO dto) {
+    public Notifications saveProduct(@RequestBody final NotificationsDTO dto) {
         log.info("HERE IS PRODUCT INFO {}", dto);
         return productInfoService.save(dto);
     }
